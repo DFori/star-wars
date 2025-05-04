@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
-import Navbar from './components/Navbar';
+import Navbar from './components/NavBar';
 import LandingPage from './pages/LandingPage';
 import CharactersPage from './pages/CharactersPage';
 import QuizPage from './pages/QuizPage';
