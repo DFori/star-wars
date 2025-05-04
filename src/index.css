@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Pathway+Extreme:wght@400;700&display=swap');
+@import "tailwindcss";
+@font-face {
+  font-family: 'Star Wars';
+  src: url('/fonts/Starjedi.ttf') format('truetype');
+}
+
+body {
+  font-family: 'Pathway Extreme', sans-serif;
+}

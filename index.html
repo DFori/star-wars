@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Tailwind Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Material UI Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+    <!-- Star Wars Font -->
+    <style>
+      @font-face {
+        font-family: 'Star Wars';
+        src: url('/fonts/Starjedi.ttf') format('truetype');
+      }
+      .bg-red-grid {
+        background-image: 
+          linear-gradient(to right, rgba(255, 0, 0, 0.1) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(255, 0, 0, 0.1) 1px, transparent 1px);
+      }
+      
+      .bg-blue-grid {
+        background-image: 
+          linear-gradient(to right, rgba(0, 100, 255, 0.1) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(0, 100, 255, 0.1) 1px, transparent 1px);
+      }
+
+      .star {
+        position: absolute;
+        background: white;
+        border-radius: 50%;
+        animation: twinkle linear infinite;
+      }
+    
+      @keyframes twinkle {
+        0%, 100% { opacity: 0; }
+        50% { opacity: 1; }
+      }
+    
+      
+    
+      @keyframes pulse-red {
+        0% { transform: scale(1); opacity: 0.5; }
+        50% { transform: scale(1.2); opacity: 0.3; }
+        100% { transform: scale(1); opacity: 0.5; }
+      }
+    
+      @keyframes pulse-blue {
+        0% { transform: scale(1); opacity: 0.5; }
+        50% { transform: scale(1.1); opacity: 0.3; }
+        100% { transform: scale(1); opacity: 0.5; }
+      }
+
+      .star-field {
+        background: 
+          radial-gradient(ellipse at bottom, #1a1a1a 0%, #090a0f 100%);
+      }
+      
+      .star-field::before {
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        background: transparent;
+        box-shadow: 
+          /* Add hundreds of star positions here */
+          100px 200px #fff,
+          300px 400px #fff,
+          500px 600px #fff,
+          700px 800px #fff;
+        animation: animStar 50s linear infinite;
+      }
+      
+      @keyframes animStar {
+        from { transform: translateY(0); }
+        to { transform: translateY(-100vh); }
+      }
+      
+      .star-wars-logo {
+        background: url('/images/star-wars-logo.png') no-repeat center;
+        width: 800px;
+        height: 300px;
+        filter: brightness(1.1);
+        background-size: contain;
+      }
+      
+      .perspective-250 {
+        perspective: 250px;
+      }
+      
+      .font-star-wars {
+        font-family: 'Star Wars', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+      @keyframes twinkle {
+        0%, 100% { opacity: 0; }
+        50% { opacity: 1; }
+      }
+      
+      .animate-twinkle {
+        animation: twinkle 2s infinite;
+      }
+      
+      .text-shadow {
+        text-shadow: 0 0 10px rgba(234,179,8,0.5);
+      }
+    </style>
+    <!-- Configure Tailwind -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              
+            },
+            fontFamily: {
+              'star-wars': '"Star Wars", sans-serif',
+            }
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
