@@ -1,15 +1,18 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
-import Navbar from '../components/NavBar';
 import useSound from 'use-sound';
-// import openingCrawlSound from '../assets/opening-crawl.mp3';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import openingCrawlSound from '../assets/opening-crawl.mp3';
 
 const LandingPage = () => {
   const { isSith } = useTheme();
   const [crawlFinished, setCrawlFinished] = useState(false);
   const navigate = useNavigate();
-  // const [play, { stop }] = useSound(openingCrawlSound);
+  const [play, { stop }] = useSound(openingCrawlSound);
   
+  const [manualPlay, setManualPlay] = useState(false);
+
   const crawlContent = `
     It is a period of civil war.
     Rebel spaceships, striking
@@ -55,7 +58,11 @@ const LandingPage = () => {
             duration: 30,
             ease: "linear"
           }}
-          // onAnimationStart={() => play()}
+          onAnimationStart={() => {
+            if (manualPlay) {
+              play();
+            }
+          }}
         >
           {/* Fade-in Text */}
           <AnimatePresence>
@@ -95,6 +102,19 @@ const LandingPage = () => {
       >
         ⏹ Stop Music
       </button>
+
+      {/* Manual Play Button */}
+      {!manualPlay && (
+        <button
+          onClick={() => {
+            setManualPlay(true);
+            play();
+          }}
+          className="fixed bottom-8 left-8 bg-yellow-500 text-black px-4 py-2 rounded hover:bg-yellow-600"
+        >
+          ▶ Play Opening Crawl Music
+        </button>
+      )}
     </div>
   );
 };
