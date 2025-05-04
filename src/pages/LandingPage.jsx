@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/NavBar';
 import useSound from 'use-sound';
 // import openingCrawlSound from '../assets/opening-crawl.mp3';
 
